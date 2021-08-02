@@ -1,0 +1,42 @@
+---
+title: "eds-212-day-1"
+author: "Jake Eisaguirre"
+date: "8/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+#Heading
+##Heading
+###Heading
+*fish*
+**fish**
+```{r}
+
+weight <- function(a, b, L) {
+  
+  a* (L ^ b)
+}
+
+weight(a = 0.0905, L = 60, b = 2.52)
+
+weight(a = 0.0353, L = 60, b = 3.05)
+
+weight(a = 0.0181, L = 60, b = 3.27)
+
+fish_length <- seq(from = 0, to = 200, by = 1)
+
+barra_weight <- weight(a = 0.0181, L = fish_length, b = 3.27)
+
+barra <- data.frame(fish_length, barra_weight)
+
+ggplot(data = barra, aes(x = fish_length, y = barra_weight)) +
+  geom_point() + labs(x = 'Fish Length (cm)', y = 'Barra Weight (g)', title = 'Barra Growth')
+
+```
+
